@@ -1,0 +1,84 @@
+<div class="row w-100">
+  <div class="col-md-12">
+    <mat-icon class="cuser" style="float:left" (click)="goback()">keyboard_backspace</mat-icon>
+    <mat-icon class="cuser" style="float:right" (click)="gohome()">home</mat-icon>
+  </div>
+</div>
+
+<div class="row w-100">
+  <div class="col-md-12">
+    <mat-card class="d-flex owner-card" *ngIf="respostary_owner">
+      <div class="col-md-12  d-flex">
+        <div class="col-md-3">
+          <img [src]="respostary_owner?.avatar_url" style="height:150px;width:150px;border-radius: 20%;" alt="">
+        </div>
+        <div class="col-md-9">
+          <p class="owner-namefont padd ">{{respostary_owner?.login | titlecase}}</p>
+          <p class="d-flex font padd ">  <mat-icon class="font" >people</mat-icon> {{respostary_owner?.followers_url}}</p>
+
+          <p class="d-flex font padd">  <mat-icon class="font" >domain</mat-icon> {{respostary_owner?.organizations_url}}</p>
+
+          <p class="d-flex font padd">  <mat-icon class="font" >bookmarks</mat-icon> {{respostary_owner?.subscriptions_url}}</p>
+
+          <p class="d-flex font padd">  <mat-icon class="font" >event</mat-icon> {{respostary_owner?.events_url}}</p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-md-12">
+    <p class="owner-namefont">
+      Repositories
+    </p>
+  </div>
+  <div class="col-md-12 borderstyle d-flex" *ngFor="let repo of respostary; let ind = index" [ngClass]="{'card-style': 0 === ind % 2}">
+    <div class="col-md-6">
+      <div class="d-flex">
+
+        <mat-icon>account_balance_wallet</mat-icon>
+        <p>
+          {{repo.name}}
+        </p>
+      </div>
+      <div class="d-flex">
+
+        <mat-icon>account_balance_wallet</mat-icon>
+        <p>
+          {{repo.full_name}}
+        </p>
+      </div>
+      <div class="d-flex">
+        <mat-icon>description</mat-icon>
+        <p>
+          {{repo.description ?  repo.description : '-' }}
+        </p>
+      </div>
+      <div class="d-flex">
+        <mat-icon ngbTooltip="Tooltip Text..!!">language</mat-icon>
+        <p>
+          {{repo.language ?  repo.language : '-' }}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="">
+
+        <div class="d-flex">
+
+          <mat-icon>visibility</mat-icon>:<p>{{repo.watchers_count}}</p>
+        </div>
+        <div class="d-flex">
+
+          <mat-icon>flag</mat-icon>:<p>{{repo.license ? repo.license.name : '-'}}</p>
+        </div>
+
+        <div class="d-flex">
+
+          <mat-icon>panorama</mat-icon>:<p>{{repo.default_branch ? repo.default_branch : '-' }}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

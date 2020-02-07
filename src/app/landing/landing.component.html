@@ -1,0 +1,62 @@
+
+<div class="row align zero  bggrey">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <input type="text" matInput #username (input)="search(username.value)">
+    <mat-icon  style="cursor: pointer;" matSuffix >search</mat-icon>
+  </mat-form-field>
+  <div class="w-75">
+
+    <mat-icon class="cuser" style="float:right" (click)="gohome()">home</mat-icon>
+  </div>
+
+</div>
+<div class="row w-100 align zero bggrey">
+  <div class=" col-md-12">
+    List of all Users
+  </div>
+  <div class="row bggrey">
+
+    <div class="container d-flex col-md-12" *ngFor=" let user of users">
+      <mat-card  class=" d-flex col-md-9 highlight padd1 bgwhite margin-align" (click)="userclick(user)">
+        <div class="col-md-1" >
+
+          <img class="img-circle" [src]="user?.avatar_url">
+          <p class="name">{{user.login | titlecase}}</p>
+        </div>
+        <div class="col-md-10 ">
+          <div class="name col-md-12 d-flex">
+            <div class="col-md-6 ">
+
+              <span class="d-flex">  <mat-icon class="icon" >link</mat-icon> {{user.html_url}}</span>
+
+              <span class="d-flex">  <mat-icon class="icon" >people</mat-icon> {{user.followers_url}}</span>
+
+              <span class="d-flex">  <mat-icon class="icon" >domain</mat-icon> {{user.organizations_url}}</span>
+
+              <span class="d-flex">  <mat-icon class="icon" >bookmarks</mat-icon> {{user.subscriptions_url}}</span>
+
+              <span class="d-flex">  <mat-icon class="icon" >event</mat-icon> {{user.events_url}}</span>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+    <!-- /If no user in the  user array/ -->
+    <div *ngIf="users.length == 0 " class=" col-md-12 w-100 ">
+      <p class="text-danger">* No User Found *</p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</div>

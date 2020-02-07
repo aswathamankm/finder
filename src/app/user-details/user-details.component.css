@@ -1,0 +1,27 @@
+.owner-card{
+  padding: 1%;
+  background: #e4e4e4;
+}
+
+.owner-namefont{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.font{
+  font-size: 10px;
+}
+.padd{
+  padding: 0;
+  margin: 0
+}
+.borderstyle{
+  border-bottom:1px solid;
+  margin: 1% ;
+}
+p{
+  font-size: 15px;
+}
+.card-style{
+  /* background: #cddfe6; */
+}

@@ -1,0 +1,11 @@
+/* /margin horizontal auto/ */
+.horiz-auto{
+  margin: 0 auto;
+}
+.vertical-align{
+  margin:  20% 0;
+}
+.head{
+  font-size: 20px;
+  font-weight: 600;
+}
